@@ -1,0 +1,23 @@
+There is no install process.
+
+I said, there is no install process.
+
+There's really no.. ok, fine.
+
+
+1.  Get the xcbgen module installed & accessible to python.
+    It may be part of xcb-proto or in a separate python xcbgen package.
+
+2.  get the xcb-proto sources in SomeLocation.
+
+3.  ./xcbbuild.sh SomeLocation/src/*.xml
+    - Ideally this will write the .d imports to ./xcb.
+
+3b. xcbbuild.sh is just a dumb helper: d-client.py may be run on a file.
+
+4.  Somehow install the now-filled ./xcb to D_INCLUDE_STUFF/std/c.
+
+5.  Import std.c.xcb.XXX into your code and watch the errors scroll by.
+
+6.  Fail to profit!
+

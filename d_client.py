@@ -1078,7 +1078,7 @@ def _c_serialize(context, self):
 
     _d('')
     # _serialize() returns the buffer size
-    _d('int')
+    _d('extern(C) int')
 
     if self.is_switch and 'unserialize' == context:
         context = 'unpack'
@@ -1169,7 +1169,7 @@ def _c_iterator(self, name):
     _d(' **')
     _d(' *****************************************************************************/')
     _d(' ')
-    _d('void')
+    _d('extern(C) void')
     _d('%s (%s *i  /**< */);', self.c_next_name, self.c_iterator_type)
 
     _d('')
@@ -1398,7 +1398,7 @@ def _c_accessors_list(self, field):
     _d(' **')
     _d(' *****************************************************************************/')
     _d(' ')
-    _d('int')
+    _d('extern(C) int')
     if switch_obj is not None:
         _d('%s (const %s *R  /**< */,', field.c_length_name, R_obj.c_type)
         spacing = ' '*(len(field.c_length_name)+2)
@@ -1420,7 +1420,7 @@ def _c_accessors_list(self, field):
         _d(' **')
         _d(' *****************************************************************************/')
         _d(' ')
-        _d('xcb_generic_iterator_t')
+        _d('extern(C) xcb_generic_iterator_t')
         if switch_obj is not None:
             _d('%s (const %s *R  /**< */,', field.c_end_name, R_obj.c_type)
             spacing = ' '*(len(field.c_end_name)+2)
@@ -1440,7 +1440,7 @@ def _c_accessors_list(self, field):
         _d(' *****************************************************************************/')
         _d(' ')
 
-        _d('%s', field.c_iterator_type)
+        _d('extern(C) %s', field.c_iterator_type)
         if switch_obj is not None:
             _d('%s (const %s *R  /**< */,', field.c_iterator_name, R_obj.c_type)
             spacing = ' '*(len(field.c_iterator_name)+2)
@@ -1659,7 +1659,7 @@ def _c_request_helper(self, name, cookie_type, void, regular, aux=False):
     _d(' **')
     _d(' *****************************************************************************/')
     _d(' ')
-    _d('%s', cookie_type)
+    _d('extern(C) %s', cookie_type)
 
     spacing = ' ' * (maxtypelen - len('xcb_connection_t'))
     comma = ',' if len(param_fields) else ');'
@@ -1736,7 +1736,7 @@ def _c_reply(self, name):
     _d(' **')
     _d(' *****************************************************************************/')
     _d(' ')
-    _d('%s *', self.c_reply_type)
+    _d('extern(C) %s *', self.c_reply_type)
     _d('%s (xcb_connection_t%s  *c  /**< */,', self.c_reply_name, spacing1)
     _d('%s%s   cookie  /**< */,', spacing3, self.c_cookie_type)
     _d('%sxcb_generic_error_t%s **e  /**< */);', spacing3, spacing2)

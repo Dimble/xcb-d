@@ -1,33 +1,29 @@
-XCB bindings for the D language.
+D bindings for xcb
+------------------
 
-Status: incomplete, pre-alpha
+This is an attempt to generate xcb D bindings using xcbgen.
+The aging project on dsource.org uses the previous xslt generator.
 
-Currently this contains only two useful items:
-xcb.d.        Manually translated from xcb.h from libxcb 1.8.1.
-d_client.py.  This is based on c_client.py copied from libxcb 1.8.1.
-              Note: files are written to xcb/foo.d
+Library version:
+xcb 1.8.1
+xcb-proto 1.7.1
+Other versions that use xcbgen might work.
 
-d_client.py is partly successful at converting the .xlm specifications in
-xcb-proto into a form usable by D.  So far, many of the enums and former
-#defines have an incorrect (or at least inconvenient) type.
-Macros such as XCB_ATOM_WM_CLASS are defined as an enum, accessible as
-XcbAtom.WM_CLASS.
+Status:
+Alpha, incomplete.
+Headers can be generated from the xcb-proto sources and appear to import
+successfully.  Only a few basic functions have been tested.
 
-Basically this is not yet usable unless your needs are minor.
-However I am uploading this now in case I do not get around to finishing it.
+Contents:
+xcb.d - manual translation of xcb.h from libxcb
+d_client.py - conversion of c_client.py from libxcb
+xcb - last attempted build of D bindings
 
-xcbbuild.sh can be ignored.  It is an unfinished helper that someday might
-prepare an import-ready xcb directory.
+d_client takes an argument of foo.xml and writes the header to xcb/foo.d.
 
------------------------
+Enum tag names are currently in CamelCase.  For example, XCB_ATOM_WM_CLASS
+in xproto.h is XcbAtom.WM_CLASS in xproto.d.  Most enums and constants
+currently have an incorrect (or at least inconvenient) base type.
 
-If you have still read this far and are determined to attempt to use this,
-my dev process is as follows:
+xcbbuild.sh dreams of someday preparing the import xcb directory.
 
-1.  get the xcb-proto sources (I used 1.7) and put it Somewhere
-2.  xcbbuild.sh Somewhere/src/*.xml
-    - In theory, this step prepares ./xcb with all the .d imports
-3.  move/copy/link/teleport ./xcb to $d_include_stuff/std/c
-4.  add import std.c.xcb.xcb; to the file and watch the errors scroll by
-
-I probably forgot some steps and the ones I didn't may be wrong.
