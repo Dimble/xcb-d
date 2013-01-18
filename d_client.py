@@ -15,7 +15,7 @@ import re
 # - Some of the consts should (probably) have a type other than int.
 # - Enums are not handled well. (name collisions, should determine the type)
 
-_module_location = 'std.c.xcb'
+_module_location = 'interim.xcb'
 
 _d_keywords = {'default' : '_default',
                'class' : '_class',
