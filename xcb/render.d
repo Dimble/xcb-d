@@ -9,10 +9,10 @@
  * @{
  **/
 
-module std.c.xcb.render;
+module interim.xcb.render;
 
-import std.c.xcb.xcb;
-import std.c.xcb.xproto;
+import interim.xcb.xcb;
+import interim.xcb.xproto;
 
 const int XCB_RENDER_MAJOR_VERSION = 0;
 const int XCB_RENDER_MINOR_VERSION = 11;
@@ -23,10 +23,12 @@ enum XcbRenderPictType {
     INDEXED,
     DIRECT
 }
+alias XcbRenderPictType xcb_render_pict_type_t;
 
 enum XcbRenderPicture {
     NONE
 }
+alias XcbRenderPicture xcb_render_picture_enum_t;
 
 enum XcbRenderPictOp {
     CLEAR,
@@ -83,16 +85,19 @@ enum XcbRenderPictOp {
     HSL_COLOR,
     HSL_LUMINOSITY
 }
+alias XcbRenderPictOp xcb_render_pict_op_t;
 
 enum XcbRenderPolyEdge {
     SHARP,
     SMOOTH
 }
+alias XcbRenderPolyEdge xcb_render_poly_edge_t;
 
 enum XcbRenderPolyMode {
     PRECISE,
     IMPRECISE
 }
+alias XcbRenderPolyMode xcb_render_poly_mode_t;
 
 enum XcbRenderCP {
     REPEAT            = 1,
@@ -109,6 +114,7 @@ enum XcbRenderCP {
     DITHER            = 2048,
     COMPONENT_ALPHA   = 4096
 }
+alias XcbRenderCP xcb_render_cp_t;
 
 enum XcbRenderSubPixel {
     UNKNOWN,
@@ -118,6 +124,7 @@ enum XcbRenderSubPixel {
     VERTICAL_BGR,
     NONE
 }
+alias XcbRenderSubPixel xcb_render_sub_pixel_t;
 
 enum XcbRenderRepeat {
     NONE,
@@ -125,6 +132,7 @@ enum XcbRenderRepeat {
     PAD,
     REFLECT
 }
+alias XcbRenderRepeat xcb_render_repeat_t;
 
 alias uint xcb_render_glyph_t;
 

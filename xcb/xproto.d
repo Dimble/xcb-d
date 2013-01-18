@@ -9,9 +9,9 @@
  * @{
  **/
 
-module std.c.xcb.xproto;
+module interim.xcb.xproto;
 
-import std.c.xcb.xcb;
+import interim.xcb.xcb;
 
 /**
  * @brief xcb_char2b_t
@@ -268,6 +268,7 @@ enum XcbVisualClass {
     TRUE_COLOR   = 4,
     DIRECT_COLOR = 5
 }
+alias XcbVisualClass xcb_visual_class_t;
 
 /**
  * @brief xcb_visualtype_t
@@ -339,12 +340,14 @@ enum XcbEventMask {
     COLOR_MAP_CHANGE      = 8388608,
     OWNER_GRAB_BUTTON     = 16777216
 }
+alias XcbEventMask xcb_event_mask_t;
 
 enum XcbBackingStore {
     NOT_USEFUL  = 0,
     WHEN_MAPPED = 1,
     ALWAYS      = 2
 }
+alias XcbBackingStore xcb_backing_store_t;
 
 /**
  * @brief xcb_screen_t
@@ -441,6 +444,7 @@ enum XcbImageOrder {
     LSB_FIRST = 0,
     MSB_FIRST = 1
 }
+alias XcbImageOrder xcb_image_order_t;
 
 /**
  * @brief xcb_setup_t
@@ -488,6 +492,7 @@ enum XcbModMask : ushort {
     N5      = 128,
     ANY     = 32768
 }
+alias XcbModMask xcb_mod_mask_t;
 
 enum XcbKeyButMask : ushort {
     SHIFT    = 1,
@@ -504,10 +509,12 @@ enum XcbKeyButMask : ushort {
     BUTTON_4 = 2048,
     BUTTON_5 = 4096
 }
+alias XcbKeyButMask xcb_key_but_mask_t;
 
 enum XcbWindow {
     NONE = 0
 }
+alias XcbWindow xcb_window_enum_t;
 
 /** Opcode for xcb_key_press. */
 const ubyte XCB_KEY_PRESS = 2;
@@ -545,6 +552,7 @@ enum XcbButtonMask {
     N5  = 4096,
     ANY = 32768
 }
+alias XcbButtonMask xcb_button_mask_t;
 
 /** Opcode for xcb_button_press. */
 const ubyte XCB_BUTTON_PRESS = 4;
@@ -578,6 +586,7 @@ enum XcbMotion {
     NORMAL = 0,
     HINT   = 1
 }
+alias XcbMotion xcb_motion_t;
 
 /** Opcode for xcb_motion_notify. */
 const ubyte XCB_MOTION_NOTIFY = 6;
@@ -612,6 +621,7 @@ enum XcbNotifyDetail {
     POINTER_ROOT      = 6,
     NONE              = 7
 }
+alias XcbNotifyDetail xcb_notify_detail_t;
 
 enum XcbNotifyMode {
     NORMAL        = 0,
@@ -619,6 +629,7 @@ enum XcbNotifyMode {
     UNGRAB        = 2,
     WHILE_GRABBED = 3
 }
+alias XcbNotifyMode xcb_notify_mode_t;
 
 /** Opcode for xcb_enter_notify. */
 const ubyte XCB_ENTER_NOTIFY = 7;
@@ -740,6 +751,7 @@ enum XcbVisibility {
     PARTIALLY_OBSCURED = 1,
     FULLY_OBSCURED     = 2
 }
+alias XcbVisibility xcb_visibility_t;
 
 /** Opcode for xcb_visibility_notify. */
 const ubyte XCB_VISIBILITY_NOTIFY = 15;
@@ -934,6 +946,7 @@ enum XcbPlace {
     ON_TOP    = 0,
     ON_BOTTOM = 1
 }
+alias XcbPlace xcb_place_t;
 
 /** Opcode for xcb_circulate_notify. */
 const ubyte XCB_CIRCULATE_NOTIFY = 26;
@@ -961,6 +974,7 @@ enum XcbProperty {
     NEW_VALUE = 0,
     DELETE    = 1
 }
+alias XcbProperty xcb_property_t;
 
 /** Opcode for xcb_property_notify. */
 const ubyte XCB_PROPERTY_NOTIFY = 28;
@@ -997,6 +1011,7 @@ struct xcb_selection_clear_event_t {
 enum XcbTime {
     CURRENT_TIME = 0
 }
+alias XcbTime xcb_time_t;
 
 enum XcbAtom {
     NONE = 0,
@@ -1070,6 +1085,7 @@ enum XcbAtom {
     WM_CLASS,
     WM_TRANSIENT_FOR
 }
+alias XcbAtom xcb_atom_enum_t;
 
 /** Opcode for xcb_selection_request. */
 const ubyte XCB_SELECTION_REQUEST = 30;
@@ -1110,10 +1126,12 @@ enum XcbColormapState {
     UNINSTALLED = 0,
     INSTALLED   = 1
 }
+alias XcbColormapState xcb_colormap_state_t;
 
 enum XcbColormap {
     NONE = 0
 }
+alias XcbColormap xcb_colormap_enum_t;
 
 /** Opcode for xcb_colormap_notify. */
 const ubyte XCB_COLORMAP_NOTIFY = 32;
@@ -1170,6 +1188,7 @@ enum XcbMapping {
     KEYBOARD = 1,
     POINTER  = 2
 }
+alias XcbMapping xcb_mapping_t;
 
 /** Opcode for xcb_mapping_notify. */
 const ubyte XCB_MAPPING_NOTIFY = 34;
@@ -1299,6 +1318,7 @@ enum XcbWindowClass : ubyte {
     INPUT_OUTPUT     = 1,
     INPUT_ONLY       = 2
 }
+alias XcbWindowClass xcb_window_class_t;
 
 enum XcbCW {
     BACK_PIXMAP       = 1,
@@ -1317,11 +1337,13 @@ enum XcbCW {
     COLORMAP          = 8192,
     CURSOR            = 16384
 }
+alias XcbCW xcb_cw_t;
 
 enum XcbBackPixmap {
     NONE            = 0,
     PARENT_RELATIVE = 1
 }
+alias XcbBackPixmap xcb_back_pixmap_t;
 
 enum XcbGravity {
     BIT_FORGET = 0,
@@ -1337,6 +1359,7 @@ enum XcbGravity {
     SOUTH_EAST = 9,
     STATIC     = 10
 }
+alias XcbGravity xcb_gravity_t;
 
 /** Opcode for xcb_create_window. */
 const ubyte XCB_CREATE_WINDOW = 1;
@@ -1379,6 +1402,7 @@ enum XcbMapState {
     UNVIEWABLE = 1,
     VIEWABLE   = 2
 }
+alias XcbMapState xcb_map_state_t;
 
 /**
  * @brief xcb_get_window_attributes_cookie_t
@@ -1455,6 +1479,7 @@ enum XcbSetMode {
     INSERT = 0,
     DELETE = 1
 }
+alias XcbSetMode xcb_set_mode_t;
 
 /** Opcode for xcb_change_save_set. */
 const ubyte XCB_CHANGE_SAVE_SET = 6;
@@ -1546,6 +1571,7 @@ enum XcbConfigWindow {
     SIBLING      = 32,
     STACK_MODE   = 64
 }
+alias XcbConfigWindow xcb_config_window_t;
 
 enum XcbStackMode {
     ABOVE     = 0,
@@ -1554,6 +1580,7 @@ enum XcbStackMode {
     BOTTOM_IF = 3,
     OPPOSITE  = 4
 }
+alias XcbStackMode xcb_stack_mode_t;
 
 /** Opcode for xcb_configure_window. */
 const ubyte XCB_CONFIGURE_WINDOW = 12;
@@ -1574,6 +1601,7 @@ enum XcbCirculate : ubyte {
     RAISE_LOWEST  = 0,
     LOWER_HIGHEST = 1
 }
+alias XcbCirculate xcb_circulate_t;
 
 /** Opcode for xcb_circulate_window. */
 const ubyte XCB_CIRCULATE_WINDOW = 13;
@@ -1728,6 +1756,7 @@ enum XcbPropMode {
     PREPEND = 1,
     APPEND  = 2
 }
+alias XcbPropMode xcb_prop_mode_t;
 
 /** Opcode for xcb_change_property. */
 const ubyte XCB_CHANGE_PROPERTY = 18;
@@ -1764,6 +1793,7 @@ struct xcb_delete_property_request_t {
 enum XcbGetPropertyType {
     ANY = 0
 }
+alias XcbGetPropertyType xcb_get_property_type_t;
 
 /**
  * @brief xcb_get_property_cookie_t
@@ -1902,6 +1932,7 @@ enum XcbSendEventDest {
     POINTER_WINDOW = 0,
     ITEM_FOCUS     = 1
 }
+alias XcbSendEventDest xcb_send_event_dest_t;
 
 /** Opcode for xcb_send_event. */
 const ubyte XCB_SEND_EVENT = 25;
@@ -1922,6 +1953,7 @@ enum XcbGrabMode {
     SYNC  = 0,
     ASYNC = 1
 }
+alias XcbGrabMode xcb_grab_mode_t;
 
 enum XcbGrabStatus {
     SUCCESS         = 0,
@@ -1930,10 +1962,12 @@ enum XcbGrabStatus {
     NOT_VIEWABLE    = 3,
     FROZEN          = 4
 }
+alias XcbGrabStatus xcb_grab_status_t;
 
 enum XcbCursor {
     NONE = 0
 }
+alias XcbCursor xcb_cursor_enum_t;
 
 /**
  * @brief xcb_grab_pointer_cookie_t
@@ -1992,6 +2026,7 @@ enum XcbButtonIndex {
     N4  = 4,
     N5  = 5
 }
+alias XcbButtonIndex xcb_button_index_t;
 
 /** Opcode for xcb_grab_button. */
 const ubyte XCB_GRAB_BUTTON = 28;
@@ -2095,6 +2130,7 @@ struct xcb_ungrab_keyboard_request_t {
 enum XcbGrab {
     ANY = 0
 }
+alias XcbGrab xcb_grab_t;
 
 /** Opcode for xcb_grab_key. */
 const ubyte XCB_GRAB_KEY = 33;
@@ -2139,6 +2175,7 @@ enum XcbAllow {
     ASYNC_BOTH      = 6,
     SYNC_BOTH       = 7
 }
+alias XcbAllow xcb_allow_t;
 
 /** Opcode for xcb_allow_events. */
 const ubyte XCB_ALLOW_EVENTS = 35;
@@ -2329,6 +2366,7 @@ enum XcbInputFocus {
     PARENT          = 2,
     FOLLOW_KEYBOARD = 3
 }
+alias XcbInputFocus xcb_input_focus_t;
 
 /** Opcode for xcb_set_input_focus. */
 const ubyte XCB_SET_INPUT_FOCUS = 42;
@@ -2436,6 +2474,7 @@ enum XcbFontDraw {
     LEFT_TO_RIGHT = 0,
     RIGHT_TO_LEFT = 1
 }
+alias XcbFontDraw xcb_font_draw_t;
 
 /**
  * @brief xcb_fontprop_t
@@ -2751,6 +2790,7 @@ enum XcbGC {
     DASH_LIST             = 2097152,
     ARC_MODE              = 4194304
 }
+alias XcbGC xcb_gc_t;
 
 enum XcbGX {
     CLEAR         = 0,
@@ -2770,12 +2810,14 @@ enum XcbGX {
     NAND          = 14,
     SET           = 15
 }
+alias XcbGX xcb_gx_t;
 
 enum XcbLineStyle {
     SOLID       = 0,
     ON_OFF_DASH = 1,
     DOUBLE_DASH = 2
 }
+alias XcbLineStyle xcb_line_style_t;
 
 enum XcbCapStyle {
     NOT_LAST   = 0,
@@ -2783,12 +2825,14 @@ enum XcbCapStyle {
     ROUND      = 2,
     PROJECTING = 3
 }
+alias XcbCapStyle xcb_cap_style_t;
 
 enum XcbJoinStyle {
     MITER = 0,
     ROUND = 1,
     BEVEL = 2
 }
+alias XcbJoinStyle xcb_join_style_t;
 
 enum XcbFillStyle {
     SOLID           = 0,
@@ -2796,21 +2840,25 @@ enum XcbFillStyle {
     STIPPLED        = 2,
     OPAQUE_STIPPLED = 3
 }
+alias XcbFillStyle xcb_fill_style_t;
 
 enum XcbFillRule {
     EVEN_ODD = 0,
     WINDING  = 1
 }
+alias XcbFillRule xcb_fill_rule_t;
 
 enum XcbSubwindowMode {
     CLIP_BY_CHILDREN  = 0,
     INCLUDE_INFERIORS = 1
 }
+alias XcbSubwindowMode xcb_subwindow_mode_t;
 
 enum XcbArcMode {
     CHORD     = 0,
     PIE_SLICE = 1
 }
+alias XcbArcMode xcb_arc_mode_t;
 
 /** Opcode for xcb_create_gc. */
 const ubyte XCB_CREATE_GC = 55;
@@ -2877,6 +2925,7 @@ enum XcbClipOrdering {
     YX_SORTED = 2,
     YX_BANDED = 3
 }
+alias XcbClipOrdering xcb_clip_ordering_t;
 
 /** Opcode for xcb_set_clip_rectangles. */
 const ubyte XCB_SET_CLIP_RECTANGLES = 59;
@@ -2970,6 +3019,7 @@ enum XcbCoordMode {
     ORIGIN   = 0,
     PREVIOUS = 1
 }
+alias XcbCoordMode xcb_coord_mode_t;
 
 /** Opcode for xcb_poly_point. */
 const ubyte XCB_POLY_POINT = 64;
@@ -3065,6 +3115,7 @@ enum XcbPolyShape {
     NONCONVEX = 1,
     CONVEX    = 2
 }
+alias XcbPolyShape xcb_poly_shape_t;
 
 /** Opcode for xcb_fill_poly. */
 const ubyte XCB_FILL_POLY = 69;
@@ -3116,6 +3167,7 @@ enum XcbImageFormat {
     XY_PIXMAP = 1,
     Z_PIXMAP  = 2
 }
+alias XcbImageFormat xcb_image_format_t;
 
 /** Opcode for xcb_put_image. */
 const ubyte XCB_PUT_IMAGE = 72;
@@ -3243,6 +3295,7 @@ enum XcbColormapAlloc {
     NONE = 0,
     ALL  = 1
 }
+alias XcbColormapAlloc xcb_colormap_alloc_t;
 
 /** Opcode for xcb_create_colormap. */
 const ubyte XCB_CREATE_COLORMAP = 78;
@@ -3516,6 +3569,7 @@ enum XcbColorFlag {
     GREEN = 2,
     BLUE  = 4
 }
+alias XcbColorFlag xcb_color_flag_t;
 
 /**
  * @brief xcb_coloritem_t
@@ -3659,6 +3713,7 @@ struct xcb_lookup_color_reply_t {
 enum XcbPixmap {
     NONE = 0
 }
+alias XcbPixmap xcb_pixmap_enum_t;
 
 /** Opcode for xcb_create_cursor. */
 const ubyte XCB_CREATE_CURSOR = 93;
@@ -3686,6 +3741,7 @@ struct xcb_create_cursor_request_t {
 enum XcbFont {
     NONE = 0
 }
+alias XcbFont xcb_font_enum_t;
 
 /** Opcode for xcb_create_glyph_cursor. */
 const ubyte XCB_CREATE_GLYPH_CURSOR = 94;
@@ -3747,6 +3803,7 @@ enum XcbQueryShapeOf {
     FASTEST_TILE    = 1,
     FASTEST_STIPPLE = 2
 }
+alias XcbQueryShapeOf xcb_query_shape_of_t;
 
 /**
  * @brief xcb_query_best_size_cookie_t
@@ -3904,17 +3961,20 @@ enum XcbKB {
     KEY               = 64,
     AUTO_REPEAT_MODE  = 128
 }
+alias XcbKB xcb_kb_t;
 
 enum XcbLedMode {
     OFF = 0,
     ON  = 1
 }
+alias XcbLedMode xcb_led_mode_t;
 
 enum XcbAutoRepeatMode {
     OFF     = 0,
     ON      = 1,
     DEFAULT = 2
 }
+alias XcbAutoRepeatMode xcb_auto_repeat_mode_t;
 
 /** Opcode for xcb_change_keyboard_control. */
 const ubyte XCB_CHANGE_KEYBOARD_CONTROL = 102;
@@ -4032,12 +4092,14 @@ enum XcbBlanking {
     PREFERRED     = 1,
     DEFAULT       = 2
 }
+alias XcbBlanking xcb_blanking_t;
 
 enum XcbExposures {
     NOT_ALLOWED = 0,
     ALLOWED     = 1,
     DEFAULT     = 2
 }
+alias XcbExposures xcb_exposures_t;
 
 /** Opcode for xcb_set_screen_saver. */
 const ubyte XCB_SET_SCREEN_SAVER = 107;
@@ -4093,6 +4155,7 @@ enum XcbHostMode {
     INSERT = 0,
     DELETE = 1
 }
+alias XcbHostMode xcb_host_mode_t;
 
 enum XcbFamily {
     INTERNET           = 0,
@@ -4101,6 +4164,7 @@ enum XcbFamily {
     SERVER_INTERPRETED = 5,
     INTERNET_6         = 6
 }
+alias XcbFamily xcb_family_t;
 
 /** Opcode for xcb_change_hosts. */
 const ubyte XCB_CHANGE_HOSTS = 109;
@@ -4170,6 +4234,7 @@ enum XcbAccessControl {
     DISABLE = 0,
     ENABLE  = 1
 }
+alias XcbAccessControl xcb_access_control_t;
 
 /** Opcode for xcb_set_access_control. */
 const ubyte XCB_SET_ACCESS_CONTROL = 111;
@@ -4188,6 +4253,7 @@ enum XcbCloseDown {
     RETAIN_PERMANENT = 1,
     RETAIN_TEMPORARY = 2
 }
+alias XcbCloseDown xcb_close_down_t;
 
 /** Opcode for xcb_set_close_down_mode. */
 const ubyte XCB_SET_CLOSE_DOWN_MODE = 112;
@@ -4204,6 +4270,7 @@ struct xcb_set_close_down_mode_request_t {
 enum XcbKill {
     ALL_TEMPORARY = 0
 }
+alias XcbKill xcb_kill_t;
 
 /** Opcode for xcb_kill_client. */
 const ubyte XCB_KILL_CLIENT = 113;
@@ -4237,6 +4304,7 @@ enum XcbScreenSaver {
     RESET  = 0,
     ACTIVE = 1
 }
+alias XcbScreenSaver xcb_screen_saver_t;
 
 /** Opcode for xcb_force_screen_saver. */
 const ubyte XCB_FORCE_SCREEN_SAVER = 115;
@@ -4255,6 +4323,7 @@ enum XcbMappingStatus {
     BUSY    = 1,
     FAILURE = 2
 }
+alias XcbMappingStatus xcb_mapping_status_t;
 
 /**
  * @brief xcb_set_pointer_mapping_cookie_t
@@ -4325,6 +4394,7 @@ enum XcbMapIndex {
     N4      = 6,
     N5      = 7
 }
+alias XcbMapIndex xcb_map_index_t;
 
 /**
  * @brief xcb_set_modifier_mapping_cookie_t

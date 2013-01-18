@@ -9,11 +9,11 @@
  * @{
  **/
 
-module std.c.xcb.randr;
+module interim.xcb.randr;
 
-import std.c.xcb.xcb;
-import std.c.xcb.xproto;
-import std.c.xcb.render;
+import interim.xcb.xcb;
+import interim.xcb.xproto;
+import interim.xcb.render;
 
 const int XCB_RANDR_MAJOR_VERSION = 1;
 const int XCB_RANDR_MINOR_VERSION = 3;
@@ -97,6 +97,7 @@ enum XcbRandrRotation {
     REFLECT_X  = 16,
     REFLECT_Y  = 32
 }
+alias XcbRandrRotation xcb_randr_rotation_t;
 
 /**
  * @brief xcb_randr_screen_size_t
@@ -173,6 +174,7 @@ enum XcbRandrSetConfig {
     INVALID_TIME        = 2,
     FAILED              = 3
 }
+alias XcbRandrSetConfig xcb_randr_set_config_t;
 
 /**
  * @brief xcb_randr_set_screen_config_cookie_t
@@ -221,6 +223,7 @@ enum XcbRandrNotifyMask {
     OUTPUT_CHANGE   = 4,
     OUTPUT_PROPERTY = 8
 }
+alias XcbRandrNotifyMask xcb_randr_notify_mask_t;
 
 /** Opcode for xcb_randr_select_input. */
 const ubyte XCB_RANDR_SELECT_INPUT = 4;
@@ -344,6 +347,7 @@ enum XcbRandrModeFlag {
     DOUBLE_CLOCK    = 4096,
     HALVE_CLOCK     = 8192
 }
+alias XcbRandrModeFlag xcb_randr_mode_flag_t;
 
 /**
  * @brief xcb_randr_mode_info_t
@@ -415,6 +419,7 @@ enum XcbRandrConnection {
     DISCONNECTED,
     UNKNOWN
 }
+alias XcbRandrConnection xcb_randr_connection_t;
 
 /**
  * @brief xcb_randr_get_output_info_cookie_t
@@ -1100,6 +1105,7 @@ enum XcbRandrNotify {
     OUTPUT_CHANGE   = 1,
     OUTPUT_PROPERTY = 2
 }
+alias XcbRandrNotify xcb_randr_notify_t;
 
 /**
  * @brief xcb_randr_crtc_change_t

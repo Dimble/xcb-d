@@ -9,9 +9,9 @@
  * @{
  **/
 
-module std.c.xcb.dpms;
+module interim.xcb.dpms;
 
-import std.c.xcb.xcb;
+import interim.xcb.xcb;
 
 const int XCB_DPMS_MAJOR_VERSION = 0;
 const int XCB_DPMS_MINOR_VERSION = 0;
@@ -160,6 +160,7 @@ enum XcbDpmsDPMSMode {
     SUSPEND,
     OFF
 }
+alias XcbDpmsDPMSMode xcb_dpms_dpms_mode_t;
 
 /** Opcode for xcb_dpms_force_level. */
 const ubyte XCB_DPMS_FORCE_LEVEL = 6;

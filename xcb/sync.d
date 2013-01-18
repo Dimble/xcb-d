@@ -9,10 +9,10 @@
  * @{
  **/
 
-module std.c.xcb.sync;
+module interim.xcb.sync;
 
-import std.c.xcb.xcb;
-import std.c.xcb.xproto;
+import interim.xcb.xcb;
+import interim.xcb.xproto;
 
 const int XCB_SYNC_MAJOR_VERSION = 3;
 const int XCB_SYNC_MINOR_VERSION = 1;
@@ -35,6 +35,7 @@ enum XcbSyncALARMSTATE {
     INACTIVE,
     DESTROYED
 }
+alias XcbSyncALARMSTATE xcb_sync_alarmstate_t;
 
 alias uint xcb_sync_counter_t;
 
@@ -64,11 +65,13 @@ enum XcbSyncTESTTYPE {
     POSITIVE_COMPARISON,
     NEGATIVE_COMPARISON
 }
+alias XcbSyncTESTTYPE xcb_sync_testtype_t;
 
 enum XcbSyncVALUETYPE {
     ABSOLUTE,
     RELATIVE
 }
+alias XcbSyncVALUETYPE xcb_sync_valuetype_t;
 
 enum XcbSyncCA {
     COUNTER    = 1,
@@ -78,6 +81,7 @@ enum XcbSyncCA {
     DELTA      = 16,
     EVENTS     = 32
 }
+alias XcbSyncCA xcb_sync_ca_t;
 
 /**
  * @brief xcb_sync_int64_t

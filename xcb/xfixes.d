@@ -9,12 +9,12 @@
  * @{
  **/
 
-module std.c.xcb.xfixes;
+module interim.xcb.xfixes;
 
-import std.c.xcb.xcb;
-import std.c.xcb.xproto;
-import std.c.xcb.render;
-import std.c.xcb.shape;
+import interim.xcb.xcb;
+import interim.xcb.xproto;
+import interim.xcb.render;
+import interim.xcb.shape;
 
 const int XCB_XFIXES_MAJOR_VERSION = 4;
 const int XCB_XFIXES_MINOR_VERSION = 0;
@@ -59,16 +59,19 @@ enum XcbXfixesSaveSetMode {
     INSERT,
     DELETE
 }
+alias XcbXfixesSaveSetMode xcb_xfixes_save_set_mode_t;
 
 enum XcbXfixesSaveSetTarget {
     NEAREST,
     ROOT
 }
+alias XcbXfixesSaveSetTarget xcb_xfixes_save_set_target_t;
 
 enum XcbXfixesSaveSetMapping {
     MAP,
     UNMAP
 }
+alias XcbXfixesSaveSetMapping xcb_xfixes_save_set_mapping_t;
 
 /** Opcode for xcb_xfixes_change_save_set. */
 const ubyte XCB_XFIXES_CHANGE_SAVE_SET = 1;
@@ -92,12 +95,14 @@ enum XcbXfixesSelectionEvent {
     SELECTION_WINDOW_DESTROY,
     SELECTION_CLIENT_CLOSE
 }
+alias XcbXfixesSelectionEvent xcb_xfixes_selection_event_t;
 
 enum XcbXfixesSelectionEventMask {
     SET_SELECTION_OWNER      = 1,
     SELECTION_WINDOW_DESTROY = 2,
     SELECTION_CLIENT_CLOSE   = 4
 }
+alias XcbXfixesSelectionEventMask xcb_xfixes_selection_event_mask_t;
 
 /** Opcode for xcb_xfixes_selection_notify. */
 const ubyte XCB_XFIXES_SELECTION_NOTIFY = 0;
@@ -135,10 +140,12 @@ struct xcb_xfixes_select_selection_input_request_t {
 enum XcbXfixesCursorNotify {
     DISPLAY_CURSOR
 }
+alias XcbXfixesCursorNotify xcb_xfixes_cursor_notify_t;
 
 enum XcbXfixesCursorNotifyMask {
     DISPLAY_CURSOR = 1
 }
+alias XcbXfixesCursorNotifyMask xcb_xfixes_cursor_notify_mask_t;
 
 /** Opcode for xcb_xfixes_cursor_notify. */
 const ubyte XCB_XFIXES_CURSOR_NOTIFY = 1;
@@ -234,6 +241,7 @@ struct xcb_xfixes_bad_region_error_t {
 enum XcbXfixesRegion {
     NONE
 }
+alias XcbXfixesRegion xcb_xfixes_region_enum_t;
 
 /** Opcode for xcb_xfixes_create_region. */
 const ubyte XCB_XFIXES_CREATE_REGION = 5;

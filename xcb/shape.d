@@ -9,10 +9,10 @@
  * @{
  **/
 
-module std.c.xcb.shape;
+module interim.xcb.shape;
 
-import std.c.xcb.xcb;
-import std.c.xcb.xproto;
+import interim.xcb.xcb;
+import interim.xcb.xproto;
 
 const int XCB_SHAPE_MAJOR_VERSION = 1;
 const int XCB_SHAPE_MINOR_VERSION = 1;
@@ -48,12 +48,14 @@ enum XcbShapeSO {
     SUBTRACT,
     INVERT
 }
+alias XcbShapeSO xcb_shape_so_t;
 
 enum XcbShapeSK {
     BOUNDING,
     CLIP,
     INPUT
 }
+alias XcbShapeSK xcb_shape_sk_t;
 
 /** Opcode for xcb_shape_notify. */
 const ubyte XCB_SHAPE_NOTIFY = 0;

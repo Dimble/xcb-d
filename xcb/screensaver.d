@@ -9,10 +9,10 @@
  * @{
  **/
 
-module std.c.xcb.screensaver;
+module interim.xcb.screensaver;
 
-import std.c.xcb.xcb;
-import std.c.xcb.xproto;
+import interim.xcb.xcb;
+import interim.xcb.xproto;
 
 const int XCB_SCREENSAVER_MAJOR_VERSION = 1;
 const int XCB_SCREENSAVER_MINOR_VERSION = 1;
@@ -24,11 +24,13 @@ enum XcbScreensaverKind {
     INTERNAL,
     EXTERNAL
 }
+alias XcbScreensaverKind xcb_screensaver_kind_t;
 
 enum XcbScreensaverEvent {
     NOTIFY_MASK = 1,
     CYCLE_MASK  = 2
 }
+alias XcbScreensaverEvent xcb_screensaver_event_t;
 
 enum XcbScreensaverState {
     OFF,
@@ -36,6 +38,7 @@ enum XcbScreensaverState {
     CYCLE,
     DISABLED
 }
+alias XcbScreensaverState xcb_screensaver_state_t;
 
 /**
  * @brief xcb_screensaver_query_version_cookie_t

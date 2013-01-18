@@ -177,7 +177,7 @@ def d_open(self):
     _ns.c_ext_global_name = _n(_ns.prefix + ('id',))
 
     # Build the type-name collision avoidance table used by d_enum
-#    build_collision_table()
+    build_collision_table()
 
     _d_setlevel(0)
 
@@ -228,13 +228,13 @@ def d_close(self):
             dfile.write('\n')
     dfile.close()
 
-#def build_collision_table():
-#    global namecount
-#    namecount = {}
-#
-#    for v in module.types.values():
-#        name = _n(v[0])
-#        namecount[name] = (namecount.get(name) or 0) + 1
+def build_collision_table():
+    global namecount
+    namecount = {}
+
+    for v in module.types.values():
+        name = _t(v[0])
+        namecount[name] = (namecount.get(name) or 0) + 1
 
 _d_enum_types = { 'XcbCirculate' : 'ubyte',
                   'XcbWindowClass' : 'ubyte',
@@ -256,6 +256,11 @@ def d_enum(self, name):
     '''
     Exported function that handles enum declarations.
     '''
+
+    tname = _t(name)
+    if namecount[tname] > 1:
+        tname = _t(name + ('enum',))
+
     _d_setlevel(0)
     _d('')
     _d_enum_name(name);
@@ -281,6 +286,7 @@ def d_enum(self, name):
         else:
             _d('    %s%s', valuename, comma)
     _d('}')
+    _d('alias %s %s;', _N(name), tname)
 
 #    tname = _t(name)
 #    if namecount[tname] > 1:

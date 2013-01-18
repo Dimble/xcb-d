@@ -9,9 +9,9 @@
  * @{
  **/
 
-module std.c.xcb.ge;
+module interim.xcb.ge;
 
-import std.c.xcb.xcb;
+import interim.xcb.xcb;
 
 const int XCB_GENERICEVENT_MAJOR_VERSION = 1;
 const int XCB_GENERICEVENT_MINOR_VERSION = 0;

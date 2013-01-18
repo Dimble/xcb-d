@@ -9,13 +9,13 @@
  * @{
  **/
 
-module std.c.xcb.damage;
+module interim.xcb.damage;
 
-import std.c.xcb.xcb;
-import std.c.xcb.xproto;
-import std.c.xcb.render;
-import std.c.xcb.shape;
-import std.c.xcb.xfixes;
+import interim.xcb.xcb;
+import interim.xcb.xproto;
+import interim.xcb.render;
+import interim.xcb.shape;
+import interim.xcb.xfixes;
 
 const int XCB_DAMAGE_MAJOR_VERSION = 1;
 const int XCB_DAMAGE_MINOR_VERSION = 1;
@@ -39,6 +39,7 @@ enum XcbDamageReportLevel {
     BOUNDING_BOX,
     NON_EMPTY
 }
+alias XcbDamageReportLevel xcb_damage_report_level_t;
 
 /** Opcode for xcb_damage_bad_damage. */
 const ubyte XCB_DAMAGE_BAD_DAMAGE = 0;

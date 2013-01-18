@@ -9,10 +9,10 @@
  * @{
  **/
 
-module std.c.xcb.xkb;
+module interim.xcb.xkb;
 
-import std.c.xcb.xcb;
-import std.c.xcb.xproto;
+import interim.xcb.xcb;
+import interim.xcb.xproto;
 
 const int XCB_XKB_MAJOR_VERSION = 1;
 const int XCB_XKB_MINOR_VERSION = 0;
@@ -24,6 +24,7 @@ enum XcbXkbConst {
     PER_KEY_BIT_ARRAY_SIZE = 32,
     KEY_NAME_LENGTH        = 4
 }
+alias XcbXkbConst xcb_xkb_const_t;
 
 enum XcbXkbEventType {
     NEW_KEYBOARD_NOTIFY     = 1,
@@ -39,12 +40,14 @@ enum XcbXkbEventType {
     ACCESS_X_NOTIFY         = 1024,
     EXTENSION_DEVICE_NOTIFY = 2048
 }
+alias XcbXkbEventType xcb_xkb_event_type_t;
 
 enum XcbXkbNKNDetail {
     KEYCODES  = 1,
     GEOMETRY  = 2,
     DEVICE_ID = 4
 }
+alias XcbXkbNKNDetail xcb_xkb_nkn_detail_t;
 
 enum XcbXkbAXNDetail {
     SK_PRESS    = 1,
@@ -55,6 +58,7 @@ enum XcbXkbAXNDetail {
     BK_REJECT   = 32,
     AXK_WARNING = 64
 }
+alias XcbXkbAXNDetail xcb_xkb_axn_detail_t;
 
 enum XcbXkbMapPart {
     KEY_TYPES           = 1,
@@ -66,11 +70,13 @@ enum XcbXkbMapPart {
     VIRTUAL_MODS        = 64,
     VIRTUAL_MOD_MAP     = 128
 }
+alias XcbXkbMapPart xcb_xkb_map_part_t;
 
 enum XcbXkbSetMapFlags {
     RESIZE_TYPES      = 1,
     RECOMPUTE_ACTIONS = 2
 }
+alias XcbXkbSetMapFlags xcb_xkb_set_map_flags_t;
 
 enum XcbXkbStatePart {
     MODIFIER_STATE     = 1,
@@ -88,6 +94,7 @@ enum XcbXkbStatePart {
     COMPAT_LOOKUP_MODS = 4096,
     POINTER_BUTTONS    = 8192
 }
+alias XcbXkbStatePart xcb_xkb_state_part_t;
 
 enum XcbXkbBoolCtrl {
     REPEAT_KEYS            = 1,
@@ -104,6 +111,7 @@ enum XcbXkbBoolCtrl {
     OVERLAY_2_MASK         = 2048,
     IGNORE_GROUP_LOCK_MASK = 4096
 }
+alias XcbXkbBoolCtrl xcb_xkb_bool_ctrl_t;
 
 enum XcbXkbControl {
     GROUPS_WRAP      = 134217728,
@@ -112,6 +120,7 @@ enum XcbXkbControl {
     PER_KEY_REPEAT   = 1073741824,
     CONTROLS_ENABLED = 2147483648
 }
+alias XcbXkbControl xcb_xkb_control_t;
 
 enum XcbXkbAXFBOpt {
     SK_PRESS_FB    = 1,
@@ -125,11 +134,13 @@ enum XcbXkbAXFBOpt {
     BK_REJECT_FB   = 256,
     DUMB_BELL      = 512
 }
+alias XcbXkbAXFBOpt xcb_xkb_axfb_opt_t;
 
 enum XcbXkbAXSKOpt {
     TWO_KEYS      = 64,
     LATCH_TO_LOCK = 128
 }
+alias XcbXkbAXSKOpt xcb_xkb_axsk_opt_t;
 
 /**
  * @brief xcb_xkb_ax_option_t
@@ -163,11 +174,13 @@ enum XcbXkbLedClassResult {
     KBD_FEEDBACK_CLASS = 0,
     LED_FEEDBACK_CLASS = 4
 }
+alias XcbXkbLedClassResult xcb_xkb_led_class_result_t;
 
 enum XcbXkbLedClass {
     DFLT_XI_CLASS  = 768,
     ALL_XI_CLASSES = 1280
 }
+alias XcbXkbLedClass xcb_xkb_led_class_t;
 
 alias ushort xcb_xkb_led_class_spec_t;
 
@@ -184,10 +197,12 @@ enum XcbXkbBellClassResult {
     KBD_FEEDBACK_CLASS  = 0,
     BELL_FEEDBACK_CLASS = 5
 }
+alias XcbXkbBellClassResult xcb_xkb_bell_class_result_t;
 
 enum XcbXkbBellClass {
     DFLT_XI_CLASS = 768
 }
+alias XcbXkbBellClass xcb_xkb_bell_class_t;
 
 alias ushort xcb_xkb_bell_class_spec_t;
 
@@ -209,6 +224,7 @@ enum XcbXkbID {
     ALL_XI_ID     = 1536,
     XI_NONE       = 65280
 }
+alias XcbXkbID xcb_xkb_id_t;
 
 alias ushort xcb_xkb_id_spec_t;
 
@@ -227,11 +243,13 @@ enum XcbXkbGroup {
     N3 = 2,
     N4 = 3
 }
+alias XcbXkbGroup xcb_xkb_group_t;
 
 enum XcbXkbGroups {
     ANY = 254,
     ALL = 255
 }
+alias XcbXkbGroups xcb_xkb_groups_t;
 
 enum XcbXkbSetOfGroup {
     GROUP_1 = 1,
@@ -239,16 +257,19 @@ enum XcbXkbSetOfGroup {
     GROUP_3 = 4,
     GROUP_4 = 8
 }
+alias XcbXkbSetOfGroup xcb_xkb_set_of_group_t;
 
 enum XcbXkbSetOfGroups {
     ANY = 128
 }
+alias XcbXkbSetOfGroups xcb_xkb_set_of_groups_t;
 
 enum XcbXkbGroupsWrap {
     WRAP_INTO_RANGE     = 0,
     CLAMP_INTO_RANGE    = 64,
     REDIRECT_INTO_RANGE = 128
 }
+alias XcbXkbGroupsWrap xcb_xkb_groups_wrap_t;
 
 enum XcbXkbVModsHigh {
     N15 = 128,
@@ -260,6 +281,7 @@ enum XcbXkbVModsHigh {
     N9  = 2,
     N8  = 1
 }
+alias XcbXkbVModsHigh xcb_xkb_v_mods_high_t;
 
 enum XcbXkbVModsLow {
     N7 = 128,
@@ -271,6 +293,7 @@ enum XcbXkbVModsLow {
     N1 = 2,
     N0 = 1
 }
+alias XcbXkbVModsLow xcb_xkb_v_mods_low_t;
 
 enum XcbXkbVMod {
     N15 = 32768,
@@ -290,6 +313,7 @@ enum XcbXkbVMod {
     N1  = 2,
     N0  = 1
 }
+alias XcbXkbVMod xcb_xkb_v_mod_t;
 
 enum XcbXkbExplicit {
     V_MOD_MAP   = 128,
@@ -301,6 +325,7 @@ enum XcbXkbExplicit {
     KEY_TYPE_2  = 2,
     KEY_TYPE_1  = 1
 }
+alias XcbXkbExplicit xcb_xkb_explicit_t;
 
 enum XcbXkbSymInterpret {
     NONE_OF        = 0,
@@ -309,17 +334,20 @@ enum XcbXkbSymInterpret {
     ALL_OF         = 3,
     EXACTLY        = 4
 }
+alias XcbXkbSymInterpret xcb_xkb_sym_interpret_t;
 
 enum XcbXkbSymInterpMatch {
     LEVEL_ONE_ONLY = 128,
     OP_MASK        = 127
 }
+alias XcbXkbSymInterpMatch xcb_xkb_sym_interp_match_t;
 
 enum XcbXkbIMFlag {
     NO_EXPLICIT   = 128,
     NO_AUTOMATIC  = 64,
     LED_DRIVES_KB = 32
 }
+alias XcbXkbIMFlag xcb_xkb_im_flag_t;
 
 enum XcbXkbIMModsWhich {
     USE_COMPAT    = 16,
@@ -328,6 +356,7 @@ enum XcbXkbIMModsWhich {
     USE_LATCHED   = 2,
     USE_BASE      = 1
 }
+alias XcbXkbIMModsWhich xcb_xkb_im_mods_which_t;
 
 enum XcbXkbIMGroupsWhich {
     USE_COMPAT    = 16,
@@ -336,6 +365,7 @@ enum XcbXkbIMGroupsWhich {
     USE_LATCHED   = 2,
     USE_BASE      = 1
 }
+alias XcbXkbIMGroupsWhich xcb_xkb_im_groups_which_t;
 
 /**
  * @brief xcb_xkb_indicator_map_t
@@ -364,6 +394,7 @@ enum XcbXkbCMDetail {
     SYM_INTERP   = 1,
     GROUP_COMPAT = 2
 }
+alias XcbXkbCMDetail xcb_xkb_cm_detail_t;
 
 enum XcbXkbNameDetail {
     KEYCODES          = 1,
@@ -381,6 +412,7 @@ enum XcbXkbNameDetail {
     GROUP_NAMES       = 4096,
     RG_NAMES          = 8192
 }
+alias XcbXkbNameDetail xcb_xkb_name_detail_t;
 
 enum XcbXkbGBNDetail {
     TYPES          = 1,
@@ -392,6 +424,7 @@ enum XcbXkbGBNDetail {
     GEOMETRY       = 64,
     OTHER_NAMES    = 128
 }
+alias XcbXkbGBNDetail xcb_xkb_gbn_detail_t;
 
 enum XcbXkbXIFeature {
     KEYBOARDS       = 1,
@@ -400,6 +433,7 @@ enum XcbXkbXIFeature {
     INDICATOR_MAPS  = 8,
     INDICATOR_STATE = 16
 }
+alias XcbXkbXIFeature xcb_xkb_xi_feature_t;
 
 enum XcbXkbPerClientFlag {
     DETECTABLE_AUTO_REPEAT    = 1,
@@ -408,6 +442,7 @@ enum XcbXkbPerClientFlag {
     LOOKUP_STATE_WHEN_GRABBED = 8,
     SEND_EVENT_USES_XKB_STATE = 16
 }
+alias XcbXkbPerClientFlag xcb_xkb_per_client_flag_t;
 
 /**
  * @brief xcb_xkb_mod_def_t
@@ -762,6 +797,7 @@ enum XcbXkbBehaviorType {
     PERMAMENT_OVERLAY_1   = 131,
     PERMAMENT_OVERLAY_2   = 132
 }
+alias XcbXkbBehaviorType xcb_xkb_behavior_type_t;
 
 /**
  * @brief xcb_xkb_set_behavior_t
@@ -1038,6 +1074,7 @@ enum XcbXkbDoodadType {
     INDICATOR = 4,
     LOGO      = 5
 }
+alias XcbXkbDoodadType xcb_xkb_doodad_type_t;
 
 /**
  * @brief xcb_xkb_common_doodad_t
@@ -1286,6 +1323,7 @@ enum XcbXkbError {
     BAD_CLASS  = 254,
     BAD_ID     = 253
 }
+alias XcbXkbError xcb_xkb_error_t;
 
 /** Opcode for xcb_xkb_keyboard. */
 const ubyte XCB_XKB_KEYBOARD = 0;
@@ -1309,6 +1347,7 @@ enum XcbXkbSA {
     USE_MOD_MAP_MODS = 4,
     GROUP_ABSOLUTE   = 4
 }
+alias XcbXkbSA xcb_xkb_sa_t;
 
 enum XcbXkbSAType {
     NO_ACTION       = 0,
@@ -1333,6 +1372,7 @@ enum XcbXkbSAType {
     LOCK_DEVICE_BTN = 19,
     DEVICE_VALUATOR = 20
 }
+alias XcbXkbSAType xcb_xkb_sa_type_t;
 
 /**
  * @brief xcb_xkb_sa_no_action_t
@@ -1479,6 +1519,7 @@ enum XcbXkbSAMovePtrFlag {
     MOVE_ABSOLUTE_X = 2,
     MOVE_ABSOLUTE_Y = 4
 }
+alias XcbXkbSAMovePtrFlag xcb_xkb_sa_move_ptr_flag_t;
 
 /**
  * @brief xcb_xkb_sa_move_ptr_t
@@ -1546,6 +1587,7 @@ enum XcbXkbSASetPtrDfltFlag {
     DFLT_BTN_ABSOLUTE  = 2,
     AFFECT_DFLT_BUTTON = 1
 }
+alias XcbXkbSASetPtrDfltFlag xcb_xkb_sa_set_ptr_dflt_flag_t;
 
 /**
  * @brief xcb_xkb_sa_set_ptr_dflt_t
@@ -1574,6 +1616,7 @@ enum XcbXkbSAIsoLockFlag {
     GROUP_ABSOLUTE    = 4,
     ISO_DFLT_IS_GROUP = 8
 }
+alias XcbXkbSAIsoLockFlag xcb_xkb_sa_iso_lock_flag_t;
 
 enum XcbXkbSAIsoLockNoAffect {
     CTRLS = 8,
@@ -1581,6 +1624,7 @@ enum XcbXkbSAIsoLockNoAffect {
     GROUP = 32,
     MODS  = 64
 }
+alias XcbXkbSAIsoLockNoAffect xcb_xkb_sa_iso_lock_no_affect_t;
 
 /**
  * @brief xcb_xkb_sa_iso_lock_t
@@ -1626,6 +1670,7 @@ enum XcbXkbSwitchScreenFlag {
     APPLICATION = 1,
     ABSOLUTE    = 4
 }
+alias XcbXkbSwitchScreenFlag xcb_xkb_switch_screen_flag_t;
 
 /**
  * @brief xcb_xkb_sa_switch_screen_t
@@ -1653,6 +1698,7 @@ enum XcbXkbBoolCtrlsHigh {
     OVERLAY_2         = 8,
     IGNORE_GROUP_LOCK = 16
 }
+alias XcbXkbBoolCtrlsHigh xcb_xkb_bool_ctrls_high_t;
 
 enum XcbXkbBoolCtrlsLow {
     REPEAT_KEYS      = 1,
@@ -1664,6 +1710,7 @@ enum XcbXkbBoolCtrlsLow {
     ACCESS_X_KEYS    = 64,
     ACCESS_X_TIMEOUT = 128
 }
+alias XcbXkbBoolCtrlsLow xcb_xkb_bool_ctrls_low_t;
 
 /**
  * @brief xcb_xkb_sa_set_controls_t
@@ -1710,6 +1757,7 @@ enum XcbXkbActionMessageFlag {
     ON_RELEASE    = 2,
     GEN_KEY_EVENT = 4
 }
+alias XcbXkbActionMessageFlag xcb_xkb_action_message_flag_t;
 
 /**
  * @brief xcb_xkb_sa_action_message_t
@@ -1777,6 +1825,7 @@ enum XcbXkbLockDeviceFlags {
     NO_LOCK   = 1,
     NO_UNLOCK = 2
 }
+alias XcbXkbLockDeviceFlags xcb_xkb_lock_device_flags_t;
 
 /**
  * @brief xcb_xkb_sa_lock_device_btn_t
@@ -1806,6 +1855,7 @@ enum XcbXkbSAValWhat {
     SET_VAL_RELATIVE = 4,
     SET_VAL_ABSOLUTE = 5
 }
+alias XcbXkbSAValWhat xcb_xkb_sa_val_what_t;
 
 /**
  * @brief xcb_xkb_sa_device_valuator_t
@@ -3217,8 +3267,9 @@ const ubyte XCB_XKB_NEW_KEYBOARD_NOTIFY = 0;
  **/
 struct xcb_xkb_new_keyboard_notify_event_t {
     ubyte           response_type; /**<  */
-    xcb_timestamp_t time; /**<  */
+    ubyte           xkbType; /**<  */
     ushort          sequence; /**<  */
+    xcb_timestamp_t time; /**<  */
     ubyte           deviceID; /**<  */
     ubyte           oldDeviceID; /**<  */
     xcb_keycode_t   minKeyCode; /**<  */
@@ -3239,8 +3290,9 @@ const ubyte XCB_XKB_MAP_NOTIFY = 1;
  **/
 struct xcb_xkb_map_notify_event_t {
     ubyte           response_type; /**<  */
-    xcb_timestamp_t time; /**<  */
+    ubyte           xkbType; /**<  */
     ushort          sequence; /**<  */
+    xcb_timestamp_t time; /**<  */
     ubyte           deviceID; /**<  */
     ubyte           ptrBtnActions; /**<  */
     ushort          changed; /**<  */
@@ -3272,8 +3324,9 @@ const ubyte XCB_XKB_STATE_NOTIFY = 2;
  **/
 struct xcb_xkb_state_notify_event_t {
     ubyte           response_type; /**<  */
-    xcb_timestamp_t time; /**<  */
+    ubyte           xkbType; /**<  */
     ushort          sequence; /**<  */
+    xcb_timestamp_t time; /**<  */
     ubyte           deviceID; /**<  */
     ubyte           mods; /**<  */
     ubyte           baseMods; /**<  */
@@ -3304,8 +3357,9 @@ const ubyte XCB_XKB_CONTROLS_NOTIFY = 3;
  **/
 struct xcb_xkb_controls_notify_event_t {
     ubyte           response_type; /**<  */
-    xcb_timestamp_t time; /**<  */
+    ubyte           xkbType; /**<  */
     ushort          sequence; /**<  */
+    xcb_timestamp_t time; /**<  */
     ubyte           deviceID; /**<  */
     ubyte           numGroups; /**<  */
     ubyte           pad0[2]; /**<  */
@@ -3327,8 +3381,9 @@ const ubyte XCB_XKB_INDICATOR_STATE_NOTIFY = 4;
  **/
 struct xcb_xkb_indicator_state_notify_event_t {
     ubyte           response_type; /**<  */
-    xcb_timestamp_t time; /**<  */
+    ubyte           xkbType; /**<  */
     ushort          sequence; /**<  */
+    xcb_timestamp_t time; /**<  */
     ubyte           deviceID; /**<  */
     ubyte           pad0[3]; /**<  */
     uint            state; /**<  */
@@ -3344,8 +3399,9 @@ const ubyte XCB_XKB_INDICATOR_MAP_NOTIFY = 5;
  **/
 struct xcb_xkb_indicator_map_notify_event_t {
     ubyte           response_type; /**<  */
-    xcb_timestamp_t time; /**<  */
+    ubyte           xkbType; /**<  */
     ushort          sequence; /**<  */
+    xcb_timestamp_t time; /**<  */
     ubyte           deviceID; /**<  */
     ubyte           pad0[3]; /**<  */
     uint            state; /**<  */
@@ -3361,8 +3417,9 @@ const ubyte XCB_XKB_NAMES_NOTIFY = 6;
  **/
 struct xcb_xkb_names_notify_event_t {
     ubyte           response_type; /**<  */
-    xcb_timestamp_t time; /**<  */
+    ubyte           xkbType; /**<  */
     ushort          sequence; /**<  */
+    xcb_timestamp_t time; /**<  */
     ubyte           deviceID; /**<  */
     ubyte           pad0; /**<  */
     ushort          changed; /**<  */
@@ -3389,8 +3446,9 @@ const ubyte XCB_XKB_COMPAT_MAP_NOTIFY = 7;
  **/
 struct xcb_xkb_compat_map_notify_event_t {
     ubyte           response_type; /**<  */
-    xcb_timestamp_t time; /**<  */
+    ubyte           xkbType; /**<  */
     ushort          sequence; /**<  */
+    xcb_timestamp_t time; /**<  */
     ubyte           deviceID; /**<  */
     ubyte           changedGroups; /**<  */
     ushort          firstSI; /**<  */
@@ -3407,8 +3465,9 @@ const ubyte XCB_XKB_BELL_NOTIFY = 8;
  **/
 struct xcb_xkb_bell_notify_event_t {
     ubyte           response_type; /**<  */
-    xcb_timestamp_t time; /**<  */
+    ubyte           xkbType; /**<  */
     ushort          sequence; /**<  */
+    xcb_timestamp_t time; /**<  */
     ubyte           deviceID; /**<  */
     ubyte           bellClass; /**<  */
     ubyte           bellID; /**<  */
@@ -3429,8 +3488,9 @@ const ubyte XCB_XKB_ACTION_MESSAGE = 9;
  **/
 struct xcb_xkb_action_message_event_t {
     ubyte             response_type; /**<  */
-    xcb_timestamp_t   time; /**<  */
+    ubyte             xkbType; /**<  */
     ushort            sequence; /**<  */
+    xcb_timestamp_t   time; /**<  */
     ubyte             deviceID; /**<  */
     xcb_keycode_t     keycode; /**<  */
     ubyte             press; /**<  */
@@ -3449,8 +3509,9 @@ const ubyte XCB_XKB_ACCESS_X_NOTIFY = 10;
  **/
 struct xcb_xkb_access_x_notify_event_t {
     ubyte           response_type; /**<  */
-    xcb_timestamp_t time; /**<  */
+    ubyte           xkbType; /**<  */
     ushort          sequence; /**<  */
+    xcb_timestamp_t time; /**<  */
     ubyte           deviceID; /**<  */
     xcb_keycode_t   keycode; /**<  */
     ushort          detailt; /**<  */
@@ -3467,8 +3528,9 @@ const ubyte XCB_XKB_EXTENSION_DEVICE_NOTIFY = 11;
  **/
 struct xcb_xkb_extension_device_notify_event_t {
     ubyte           response_type; /**<  */
-    xcb_timestamp_t time; /**<  */
+    ubyte           xkbType; /**<  */
     ushort          sequence; /**<  */
+    xcb_timestamp_t time; /**<  */
     ubyte           deviceID; /**<  */
     ubyte           pad0; /**<  */
     ushort          reason; /**<  */

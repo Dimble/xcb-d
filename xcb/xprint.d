@@ -9,10 +9,10 @@
  * @{
  **/
 
-module std.c.xcb.xprint;
+module interim.xcb.xprint;
 
-import std.c.xcb.xcb;
-import std.c.xcb.xproto;
+import interim.xcb.xcb;
+import interim.xcb.xproto;
 
 const int XCB_XPRINT_MAJOR_VERSION = 1;
 const int XCB_XPRINT_MINOR_VERSION = 0;
@@ -62,12 +62,14 @@ enum XcbX_printGetDoc {
     FINISHED        = 0,
     SECOND_CONSUMER = 1
 }
+alias XcbX_printGetDoc xcb_x_print_get_doc_t;
 
 enum XcbX_printEvMask {
     NO_EVENT_MASK  = 0,
     PRINT_MASK     = 1,
     ATTRIBUTE_MASK = 2
 }
+alias XcbX_printEvMask xcb_x_print_ev_mask_t;
 
 enum XcbX_printDetail {
     START_JOB_NOTIFY  = 1,
@@ -77,6 +79,7 @@ enum XcbX_printDetail {
     START_PAGE_NOTIFY = 5,
     END_PAGE_NOTIFY   = 6
 }
+alias XcbX_printDetail xcb_x_print_detail_t;
 
 enum XcbX_printAttr {
     JOB_ATTR     = 1,
@@ -87,6 +90,7 @@ enum XcbX_printAttr {
     MEDIUM_ATTR  = 6,
     SPOOLER_ATTR = 7
 }
+alias XcbX_printAttr xcb_x_print_attr_t;
 
 /**
  * @brief xcb_x_print_print_query_version_cookie_t

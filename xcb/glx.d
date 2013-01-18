@@ -9,10 +9,10 @@
  * @{
  **/
 
-module std.c.xcb.glx;
+module interim.xcb.glx;
 
-import std.c.xcb.xcb;
-import std.c.xcb.xproto;
+import interim.xcb.xcb;
+import interim.xcb.xproto;
 
 const int XCB_GLX_MAJOR_VERSION = 1;
 const int XCB_GLX_MINOR_VERSION = 3;
@@ -242,11 +242,13 @@ enum XcbGlxPBCET {
     DAMAGED = 32791,
     SAVED   = 32792
 }
+alias XcbGlxPBCET xcb_glx_pbcet_t;
 
 enum XcbGlxPBCDT {
     WINDOW  = 32793,
     PBUFFER = 32794
 }
+alias XcbGlxPBCDT xcb_glx_pbcdt_t;
 
 /** Opcode for xcb_glx_render. */
 const ubyte XCB_GLX_RENDER = 1;
@@ -473,6 +475,7 @@ enum XcbGlxGC {
     GL_SCISSOR_BIT         = 524288,
     GL_ALL_ATTRIB_BITS     = 16777215
 }
+alias XcbGlxGC xcb_glx_gc_t;
 
 /** Opcode for xcb_glx_swap_buffers. */
 const ubyte XCB_GLX_SWAP_BUFFERS = 11;
@@ -1147,6 +1150,7 @@ enum XcbGlxRM {
     GL_FEEDBACK = 7169,
     GL_SELECT   = 7170
 }
+alias XcbGlxRM xcb_glx_rm_t;
 
 /**
  * @brief xcb_glx_finish_cookie_t

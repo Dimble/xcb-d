@@ -9,10 +9,10 @@
  * @{
  **/
 
-module std.c.xcb.xtest;
+module interim.xcb.xtest;
 
-import std.c.xcb.xcb;
-import std.c.xcb.xproto;
+import interim.xcb.xcb;
+import interim.xcb.xproto;
 
 const int XCB_TEST_MAJOR_VERSION = 2;
 const int XCB_TEST_MINOR_VERSION = 1;
@@ -56,6 +56,7 @@ enum XcbTestCursor {
     NONE    = 0,
     CURRENT = 1
 }
+alias XcbTestCursor xcb_test_cursor_t;
 
 /**
  * @brief xcb_test_compare_cursor_cookie_t

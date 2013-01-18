@@ -9,10 +9,10 @@
  * @{
  **/
 
-module std.c.xcb.xinerama;
+module interim.xcb.xinerama;
 
-import std.c.xcb.xcb;
-import std.c.xcb.xproto;
+import interim.xcb.xcb;
+import interim.xcb.xproto;
 
 const int XCB_XINERAMA_MAJOR_VERSION = 1;
 const int XCB_XINERAMA_MINOR_VERSION = 1;

@@ -9,9 +9,9 @@
  * @{
  **/
 
-module std.c.xcb.xevie;
+module interim.xcb.xevie;
 
-import std.c.xcb.xcb;
+import interim.xcb.xcb;
 
 const int XCB_XEVIE_MAJOR_VERSION = 1;
 const int XCB_XEVIE_MINOR_VERSION = 0;
@@ -118,6 +118,7 @@ enum XcbXevieDatatype {
     UNMODIFIED,
     MODIFIED
 }
+alias XcbXevieDatatype xcb_xevie_datatype_t;
 
 /**
  * @brief xcb_xevie_event_t

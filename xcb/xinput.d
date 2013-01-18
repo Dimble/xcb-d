@@ -9,10 +9,10 @@
  * @{
  **/
 
-module std.c.xcb.xinput;
+module interim.xcb.xinput;
 
-import std.c.xcb.xcb;
-import std.c.xcb.xproto;
+import interim.xcb.xcb;
+import interim.xcb.xproto;
 
 const int XCB_INPUT_MAJOR_VERSION = 1;
 const int XCB_INPUT_MINOR_VERSION = 4;
@@ -45,11 +45,13 @@ enum XcbInputValuatorMode {
     RELATIVE = 0,
     ABSOLUTE = 1
 }
+alias XcbInputValuatorMode xcb_input_valuator_mode_t;
 
 enum XcbInputPropagateMode {
     ADD_TO_LIST      = 0,
     DELETE_FROM_LIST = 1
 }
+alias XcbInputPropagateMode xcb_input_propagate_mode_t;
 
 /**
  * @brief xcb_input_get_extension_version_cookie_t
@@ -93,6 +95,7 @@ enum XcbInputDeviceUse {
     IS_X_EXTENSION_KEYBOARD = 3,
     IS_X_EXTENSION_POINTER  = 4
 }
+alias XcbInputDeviceUse xcb_input_device_use_t;
 
 /**
  * @brief xcb_input_device_info_t
@@ -154,6 +157,7 @@ enum XcbInputInputClass {
     FOCUS     = 5,
     OTHER     = 6
 }
+alias XcbInputInputClass xcb_input_input_class_t;
 
 /**
  * @brief xcb_input_input_info_t
@@ -702,6 +706,7 @@ enum XcbInputDeviceInputMode {
     ASYNC_ALL,
     SYNC_ALL
 }
+alias XcbInputDeviceInputMode xcb_input_device_input_mode_t;
 
 /** Opcode for xcb_input_allow_device_events. */
 const ubyte XCB_INPUT_ALLOW_DEVICE_EVENTS = 19;
@@ -810,6 +815,7 @@ enum XcbInputFeedbackClass {
     LED,
     BELL
 }
+alias XcbInputFeedbackClass xcb_input_feedback_class_t;
 
 /**
  * @brief xcb_input_feedback_state_t

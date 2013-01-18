@@ -9,9 +9,9 @@
  * @{
  **/
 
-module std.c.xcb.xc_misc;
+module interim.xcb.xc_misc;
 
-import std.c.xcb.xcb;
+import interim.xcb.xcb;
 
 const int XCB_XCMISC_MAJOR_VERSION = 1;
 const int XCB_XCMISC_MINOR_VERSION = 1;

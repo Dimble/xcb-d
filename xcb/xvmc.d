@@ -9,12 +9,12 @@
  * @{
  **/
 
-module std.c.xcb.xvmc;
+module interim.xcb.xvmc;
 
-import std.c.xcb.xcb;
-import std.c.xcb.xproto;
-import std.c.xcb.shm;
-import std.c.xcb.xv;
+import interim.xcb.xcb;
+import interim.xcb.xproto;
+import interim.xcb.shm;
+import interim.xcb.xv;
 
 const int XCB_XVMC_MAJOR_VERSION = 1;
 const int XCB_XVMC_MINOR_VERSION = 1;

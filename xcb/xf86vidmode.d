@@ -9,9 +9,9 @@
  * @{
  **/
 
-module std.c.xcb.xf86vidmode;
+module interim.xcb.xf86vidmode;
 
-import std.c.xcb.xcb;
+import interim.xcb.xcb;
 
 const int XCB_XF86VIDMODE_MAJOR_VERSION = 2;
 const int XCB_XF86VIDMODE_MINOR_VERSION = 2;
@@ -55,15 +55,18 @@ enum XcbXf86vidmodeModeFlag {
     DOUBLE_CLOCK    = 2048,
     HALF_CLOCK      = 4096
 }
+alias XcbXf86vidmodeModeFlag xcb_xf86vidmode_mode_flag_t;
 
 enum XcbXf86vidmodeClockFlag {
     PROGRAMABLE = 1
 }
+alias XcbXf86vidmodeClockFlag xcb_xf86vidmode_clock_flag_t;
 
 enum XcbXf86vidmodePermission {
     READ  = 1,
     WRITE = 2
 }
+alias XcbXf86vidmodePermission xcb_xf86vidmode_permission_t;
 
 /**
  * @brief xcb_xf86vidmode_mode_info_t

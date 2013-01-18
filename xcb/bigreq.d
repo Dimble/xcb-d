@@ -9,9 +9,9 @@
  * @{
  **/
 
-module std.c.xcb.bigreq;
+module interim.xcb.bigreq;
 
-import std.c.xcb.xcb;
+import interim.xcb.xcb;
 
 const int XCB_BIGREQUESTS_MAJOR_VERSION = 0;
 const int XCB_BIGREQUESTS_MINOR_VERSION = 0;

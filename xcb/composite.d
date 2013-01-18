@@ -9,13 +9,13 @@
  * @{
  **/
 
-module std.c.xcb.composite;
+module interim.xcb.composite;
 
-import std.c.xcb.xcb;
-import std.c.xcb.xproto;
-import std.c.xcb.render;
-import std.c.xcb.shape;
-import std.c.xcb.xfixes;
+import interim.xcb.xcb;
+import interim.xcb.xproto;
+import interim.xcb.render;
+import interim.xcb.shape;
+import interim.xcb.xfixes;
 
 const int XCB_COMPOSITE_MAJOR_VERSION = 0;
 const int XCB_COMPOSITE_MINOR_VERSION = 3;
@@ -26,6 +26,7 @@ enum XcbCompositeRedirect {
     AUTOMATIC,
     MANUAL
 }
+alias XcbCompositeRedirect xcb_composite_redirect_t;
 
 /**
  * @brief xcb_composite_query_version_cookie_t

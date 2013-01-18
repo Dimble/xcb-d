@@ -9,11 +9,11 @@
  * @{
  **/
 
-module std.c.xcb.xv;
+module interim.xcb.xv;
 
-import std.c.xcb.xcb;
-import std.c.xcb.xproto;
-import std.c.xcb.shm;
+import interim.xcb.xcb;
+import interim.xcb.xproto;
+import interim.xcb.shm;
 
 const int XCB_XV_MAJOR_VERSION = 2;
 const int XCB_XV_MINOR_VERSION = 2;
@@ -49,21 +49,25 @@ enum XcbXvType {
     STILL_MASK  = 8,
     IMAGE_MASK  = 16
 }
+alias XcbXvType xcb_xv_type_t;
 
 enum XcbXvImageFormatInfoType {
     RGB,
     YUV
 }
+alias XcbXvImageFormatInfoType xcb_xv_image_format_info_type_t;
 
 enum XcbXvImageFormatInfoFormat {
     PACKED,
     PLANAR
 }
+alias XcbXvImageFormatInfoFormat xcb_xv_image_format_info_format_t;
 
 enum XcbXvAttributeFlag {
     GETTABLE = 1,
     SETTABLE = 2
 }
+alias XcbXvAttributeFlag xcb_xv_attribute_flag_t;
 
 enum XcbXvVideoNotifyReason {
     STARTED,
@@ -72,11 +76,13 @@ enum XcbXvVideoNotifyReason {
     PREEMPTED,
     HARD_ERROR
 }
+alias XcbXvVideoNotifyReason xcb_xv_video_notify_reason_t;
 
 enum XcbXvScanlineOrder {
     TOP_TO_BOTTOM,
     BOTTOM_TO_TOP
 }
+alias XcbXvScanlineOrder xcb_xv_scanline_order_t;
 
 enum XcbXvGrabPortStatus {
     SUCCESS,
@@ -86,6 +92,7 @@ enum XcbXvGrabPortStatus {
     BAD_REPLY,
     BAD_ALLOC
 }
+alias XcbXvGrabPortStatus xcb_xv_grab_port_status_t;
 
 /**
  * @brief xcb_xv_rational_t

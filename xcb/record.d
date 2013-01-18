@@ -9,9 +9,9 @@
  * @{
  **/
 
-module std.c.xcb.record;
+module interim.xcb.record;
 
-import std.c.xcb.xcb;
+import interim.xcb.xcb;
 
 const int XCB_RECORD_MAJOR_VERSION = 1;
 const int XCB_RECORD_MINOR_VERSION = 13;
@@ -120,6 +120,7 @@ enum XcbRecordHType {
     FROM_CLIENT_TIME     = 2,
     FROM_CLIENT_SEQUENCE = 4
 }
+alias XcbRecordHType xcb_record_h_type_t;
 
 alias uint xcb_record_client_spec_t;
 
@@ -137,6 +138,7 @@ enum XcbRecordCS {
     FUTURE_CLIENTS  = 2,
     ALL_CLIENTS     = 3
 }
+alias XcbRecordCS xcb_record_cs_t;
 
 /**
  * @brief xcb_record_client_info_t

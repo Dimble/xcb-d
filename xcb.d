@@ -25,9 +25,9 @@
  * authorization from the authors.
  */
 
-module std.c.xcb.xcb;
+module interim.xcb.xcb;
 
-import std.c.xcb.xproto;
+import interim.xcb.xproto;
 
 /**
  * @file xcb.d
@@ -377,7 +377,7 @@ void xcb_prefetch_extension_data(xcb_connection_t *c, xcb_extension_t *ext);
  *
  * The result must not be freed.
  */
-const xcb_setup_t *xcb_get_setup(xcb_connection_t *c);
+const(xcb_setup_t *) xcb_get_setup(xcb_connection_t *c);
 
 /**
  * @brief Access the file descriptor of the connection.

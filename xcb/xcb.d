@@ -25,9 +25,9 @@
  * authorization from the authors.
  */
 
-module std.c.xcb.xcb;
+module interim.xcb.xcb;
 
-public import std.c.xcb.xproto;
+import interim.xcb.xproto;
 
 /**
  * @file xcb.d

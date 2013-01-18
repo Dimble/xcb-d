@@ -9,9 +9,9 @@
  * @{
  **/
 
-module std.c.xcb.xf86dri;
+module interim.xcb.xf86dri;
 
-import std.c.xcb.xcb;
+import interim.xcb.xcb;
 
 const int XCB_XF86DRI_MAJOR_VERSION = 4;
 const int XCB_XF86DRI_MINOR_VERSION = 1;

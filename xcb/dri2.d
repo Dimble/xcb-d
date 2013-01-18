@@ -9,13 +9,13 @@
  * @{
  **/
 
-module std.c.xcb.dri2;
+module interim.xcb.dri2;
 
-import std.c.xcb.xcb;
-import std.c.xcb.xproto;
+import interim.xcb.xcb;
+import interim.xcb.xproto;
 
 const int XCB_DRI2_MAJOR_VERSION = 1;
-const int XCB_DRI2_MINOR_VERSION = 3;
+const int XCB_DRI2_MINOR_VERSION = 4;
   
 extern(C) xcb_extension_t xcb_dri2_id;
 
@@ -32,17 +32,20 @@ enum XcbDri2Attachment {
     BUFFER_DEPTH_STENCIL,
     BUFFER_HIZ
 }
+alias XcbDri2Attachment xcb_dri2_attachment_t;
 
 enum XcbDri2DriverType {
     DRI,
     VDPAU
 }
+alias XcbDri2DriverType xcb_dri2_driver_type_t;
 
 enum XcbDri2EventType {
     EXCHANGE_COMPLETE = 1,
     BLIT_COMPLETE     = 2,
     FLIP_COMPLETE     = 3
 }
+alias XcbDri2EventType xcb_dri2_event_type_t;
 
 /**
  * @brief xcb_dri2_dri2_buffer_t
@@ -475,6 +478,39 @@ struct xcb_dri2_swap_interval_request_t {
     ushort         length; /**<  */
     xcb_drawable_t drawable; /**<  */
     uint           interval; /**<  */
+}
+
+/**
+ * @brief xcb_dri2_get_param_cookie_t
+ **/
+struct xcb_dri2_get_param_cookie_t {
+    uint sequence; /**<  */
+}
+
+/** Opcode for xcb_dri2_get_param. */
+const ubyte XCB_DRI2_GET_PARAM = 13;
+
+/**
+ * @brief xcb_dri2_get_param_request_t
+ **/
+struct xcb_dri2_get_param_request_t {
+    ubyte          major_opcode; /**<  */
+    ubyte          minor_opcode; /**<  */
+    ushort         length; /**<  */
+    xcb_drawable_t drawable; /**<  */
+    uint           param; /**<  */
+}
+
+/**
+ * @brief xcb_dri2_get_param_reply_t
+ **/
+struct xcb_dri2_get_param_reply_t {
+    ubyte  response_type; /**<  */
+    ubyte  is_param_recognized; /**<  */
+    ushort sequence; /**<  */
+    uint   length; /**<  */
+    uint   value_hi; /**<  */
+    uint   value_lo; /**<  */
 }
 
 /** Opcode for xcb_dri2_buffer_swap_complete. */
@@ -1856,6 +1892,90 @@ extern(C) xcb_void_cookie_t
 xcb_dri2_swap_interval (xcb_connection_t *c  /**< */,
                         xcb_drawable_t    drawable  /**< */,
                         uint              interval  /**< */);
+
+/**
+ * Delivers a request to the X server
+ * @param c The connection
+ * @return A cookie
+ *
+ * Delivers a request to the X server.
+ * 
+ */
+
+/*****************************************************************************
+ **
+ ** xcb_dri2_get_param_cookie_t xcb_dri2_get_param
+ ** 
+ ** @param xcb_connection_t *c
+ ** @param xcb_drawable_t    drawable
+ ** @param uint              param
+ ** @returns xcb_dri2_get_param_cookie_t
+ **
+ *****************************************************************************/
+ 
+extern(C) xcb_dri2_get_param_cookie_t
+xcb_dri2_get_param (xcb_connection_t *c  /**< */,
+                    xcb_drawable_t    drawable  /**< */,
+                    uint              param  /**< */);
+
+/**
+ * Delivers a request to the X server
+ * @param c The connection
+ * @return A cookie
+ *
+ * Delivers a request to the X server.
+ * 
+ * This form can be used only if the request will cause
+ * a reply to be generated. Any returned error will be
+ * placed in the event queue.
+ */
+
+/*****************************************************************************
+ **
+ ** xcb_dri2_get_param_cookie_t xcb_dri2_get_param_unchecked
+ ** 
+ ** @param xcb_connection_t *c
+ ** @param xcb_drawable_t    drawable
+ ** @param uint              param
+ ** @returns xcb_dri2_get_param_cookie_t
+ **
+ *****************************************************************************/
+ 
+extern(C) xcb_dri2_get_param_cookie_t
+xcb_dri2_get_param_unchecked (xcb_connection_t *c  /**< */,
+                              xcb_drawable_t    drawable  /**< */,
+                              uint              param  /**< */);
+
+/**
+ * Return the reply
+ * @param c      The connection
+ * @param cookie The cookie
+ * @param e      The xcb_generic_error_t supplied
+ *
+ * Returns the reply of the request asked by
+ * 
+ * The parameter @p e supplied to this function must be NULL if
+ * xcb_dri2_get_param_unchecked(). is used.
+ * Otherwise, it stores the error if any.
+ *
+ * The returned value must be freed by the caller using free().
+ */
+
+/*****************************************************************************
+ **
+ ** xcb_dri2_get_param_reply_t * xcb_dri2_get_param_reply
+ ** 
+ ** @param xcb_connection_t             *c
+ ** @param xcb_dri2_get_param_cookie_t   cookie
+ ** @param xcb_generic_error_t         **e
+ ** @returns xcb_dri2_get_param_reply_t *
+ **
+ *****************************************************************************/
+ 
+extern(C) xcb_dri2_get_param_reply_t *
+xcb_dri2_get_param_reply (xcb_connection_t             *c  /**< */,
+                          xcb_dri2_get_param_cookie_t   cookie  /**< */,
+                          xcb_generic_error_t         **e  /**< */);
 
 /**
  * @}
