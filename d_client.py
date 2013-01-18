@@ -237,7 +237,9 @@ def d_close(self):
 #        namecount[name] = (namecount.get(name) or 0) + 1
 
 _d_enum_types = { 'XcbCirculate' : 'ubyte',
-                  'XcbWindowClass' : 'ubyte'
+                  'XcbWindowClass' : 'ubyte',
+                  'XcbModMask'     : 'ushort',
+                  'XcbKeyButMask'  : 'ushort'
                 }
 
 # XXX possibly determine the type by looking through the structs for fields

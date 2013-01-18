@@ -477,7 +477,7 @@ struct xcb_setup_iterator_t {
     int          index; /**<  */
 }
 
-enum XcbModMask {
+enum XcbModMask : ushort {
     SHIFT   = 1,
     LOCK    = 2,
     CONTROL = 4,
@@ -489,7 +489,7 @@ enum XcbModMask {
     ANY     = 32768
 }
 
-enum XcbKeyButMask {
+enum XcbKeyButMask : ushort {
     SHIFT    = 1,
     LOCK     = 2,
     CONTROL  = 4,

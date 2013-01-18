@@ -377,7 +377,7 @@ void xcb_prefetch_extension_data(xcb_connection_t *c, xcb_extension_t *ext);
  *
  * The result must not be freed.
  */
-/+const+/ xcb_setup_t *xcb_get_setup(xcb_connection_t *c);
+const xcb_setup_t *xcb_get_setup(xcb_connection_t *c);
 
 /**
  * @brief Access the file descriptor of the connection.
